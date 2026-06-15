@@ -13,9 +13,23 @@ export default async function SupervisorDashboard() {
     redirect('/supervisor/login');
   }
 
-  const logs = await sql`
-    SELECT * FROM machine_logs ORDER BY log_date DESC, submitted_at DESC LIMIT 200
-  `;
+  async function logout() {
+    "use server";
+    const cookieStore = await cookies();
+    cookieStore.delete('supervisor');
+    redirect('/supervisor/login');
+  }
+
+  let logs: any[] = [];
+  let dbError = '';
+
+  try {
+    logs = await sql`
+      SELECT * FROM machine_logs ORDER BY log_date DESC, submitted_at DESC LIMIT 200
+    `;
+  } catch (err: any) {
+    dbError = err.message || 'Database connection error';
+  }
 
   const now = new Date();
   const { logDateStr } = getCurrentShiftDetails(now);
@@ -38,8 +52,12 @@ export default async function SupervisorDashboard() {
   });
 
   const todayLogs = logs.filter(l => {
-    const d = new Date(l.log_date);
-    return format(d, 'yyyy-MM-dd') === logDateStr;
+    try {
+      const d = new Date(l.log_date);
+      return format(d, 'yyyy-MM-dd') === logDateStr;
+    } catch {
+      return false;
+    }
   });
   
   const missedLogs = expectedLogs.filter(exp => {
@@ -59,16 +77,26 @@ export default async function SupervisorDashboard() {
               <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">Production Date</div>
               <div className="text-lg font-bold text-blue-400">{logDateStr}</div>
             </div>
-            <Link href="/" className="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm font-semibold transition-colors">
-              Log Out
-            </Link>
+            <form action={logout}>
+              <button type="submit" className="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm font-semibold transition-colors text-white">
+                Log Out
+              </button>
+            </form>
           </div>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto py-8 px-4 sm:px-6">
         
-        {missedLogs.length > 0 && (
+        {dbError && (
+          <div className="mb-10 bg-red-100 border-l-4 border-red-600 p-6 rounded-lg shadow-md">
+            <h2 className="text-xl font-bold text-red-800">Database Connection Error</h2>
+            <p className="text-red-700 mt-2 font-medium">{dbError}</p>
+            <p className="text-red-600 text-sm mt-4">Please ensure you have run the database setup script in Supabase, and your Environment Variables are correct in Vercel.</p>
+          </div>
+        )}
+
+        {!dbError && missedLogs.length > 0 && (
           <div className="mb-10">
             <h2 className="text-xl font-extrabold text-red-600 mb-5 flex items-center">
               <span className="bg-red-100 p-1.5 rounded-lg mr-3 shadow-sm">⚠️</span> 

@@ -43,7 +43,6 @@ export default function MachineLogPage() {
           log_date: shiftDetails.logDateStr,
           period: shiftDetails.period,
           operator_name: operatorName,
-          die_code: dieCode,
           form_data: { inspections }
         })
       });
@@ -113,10 +112,6 @@ export default function MachineLogPage() {
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Operator Name</label>
                   <input required type="text" value={operatorName} onChange={e => setOperatorName(e.target.value)} className="w-full border-2 border-slate-200 rounded-xl px-4 py-3 font-medium text-slate-900 focus:ring-0 focus:border-blue-500 transition-colors outline-none" placeholder="Enter your full name" />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Die Code</label>
-                  <input required type="text" value={dieCode} onChange={e => setDieCode(e.target.value)} className="w-full border-2 border-slate-200 rounded-xl px-4 py-3 font-medium text-slate-900 focus:ring-0 focus:border-blue-500 transition-colors outline-none" placeholder="Enter die code" />
                 </div>
               </div>
 
