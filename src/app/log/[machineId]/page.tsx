@@ -155,11 +155,11 @@ export default function MachineLogPage() {
                       <div className="text-slate-500 font-medium text-sm mt-1">20.6±0.05 <span className="text-slate-400 font-normal">(20.55 ~ 20.65)</span></div>
                     </td>
                     <td className="py-5 px-4">
-                      <input required type="number" step="0.001" placeholder="e.g. 20.60" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-semibold text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
+                      <input required type="number" step="0.001" placeholder="e.g. 20.60" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-extrabold text-slate-900 text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
                         value={inspections.thickness.min} onChange={e => setInspections({...inspections, thickness: {...inspections.thickness, min: e.target.value}})} />
                     </td>
                     <td className="py-5 px-4">
-                      <input required type="number" step="0.001" placeholder="e.g. 20.60" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-semibold text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
+                      <input required type="number" step="0.001" placeholder="e.g. 20.60" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-extrabold text-slate-900 text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
                         value={inspections.thickness.max} onChange={e => setInspections({...inspections, thickness: {...inspections.thickness, max: e.target.value}})} />
                     </td>
                   </tr>
@@ -170,11 +170,11 @@ export default function MachineLogPage() {
                       <div className="text-slate-500 font-medium text-sm mt-1">0.2 max <span className="text-slate-400 font-normal">(w.r.t Thickness Face)</span></div>
                     </td>
                     <td className="py-5 px-4">
-                      <input required type="number" step="0.001" placeholder="e.g. 0.10" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-semibold text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
+                      <input required type="number" step="0.001" placeholder="e.g. 0.10" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-extrabold text-slate-900 text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
                         value={inspections.symmetry.min} onChange={e => setInspections({...inspections, symmetry: {...inspections.symmetry, min: e.target.value}})} />
                     </td>
                     <td className="py-5 px-4">
-                      <input required type="number" step="0.001" placeholder="e.g. 0.10" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-semibold text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
+                      <input required type="number" step="0.001" placeholder="e.g. 0.10" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-extrabold text-slate-900 text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
                         value={inspections.symmetry.max} onChange={e => setInspections({...inspections, symmetry: {...inspections.symmetry, max: e.target.value}})} />
                     </td>
                   </tr>
@@ -185,11 +185,11 @@ export default function MachineLogPage() {
                       <div className="text-slate-500 font-medium text-sm mt-1">0.05 max <span className="text-slate-400 font-normal">(w.r.t Thickness Face)</span></div>
                     </td>
                     <td className="py-5 px-4">
-                      <input required type="number" step="0.001" placeholder="e.g. 0.02" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-semibold text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
+                      <input required type="number" step="0.001" placeholder="e.g. 0.02" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-extrabold text-slate-900 text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
                         value={inspections.parallelism.min} onChange={e => setInspections({...inspections, parallelism: {...inspections.parallelism, min: e.target.value}})} />
                     </td>
                     <td className="py-5 px-4">
-                      <input required type="number" step="0.001" placeholder="e.g. 0.02" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-semibold text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
+                      <input required type="number" step="0.001" placeholder="e.g. 0.02" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-extrabold text-slate-900 text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
                         value={inspections.parallelism.max} onChange={e => setInspections({...inspections, parallelism: {...inspections.parallelism, max: e.target.value}})} />
                     </td>
                   </tr>
@@ -200,11 +200,11 @@ export default function MachineLogPage() {
                       <div className="text-slate-500 font-medium text-sm mt-1">Face unclear, damages, marks <span className="text-red-500 font-bold">(Not allowed)</span></div>
                     </td>
                     <td className="py-5 px-4">
-                      <input required type="text" placeholder="OK or NG" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-bold text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none uppercase transition-all" 
+                      <input required type="text" placeholder="OK or NG" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-extrabold text-slate-900 text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none uppercase transition-all" 
                         value={inspections.visual.min} onChange={e => setInspections({...inspections, visual: {...inspections.visual, min: e.target.value}})} />
                     </td>
                     <td className="py-5 px-4">
-                      <input required type="text" placeholder="OK or NG" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-bold text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none uppercase transition-all" 
+                      <input required type="text" placeholder="OK or NG" className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 font-extrabold text-slate-900 text-center focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none uppercase transition-all" 
                         value={inspections.visual.max} onChange={e => setInspections({...inspections, visual: {...inspections.visual, max: e.target.value}})} />
                     </td>
                   </tr>
