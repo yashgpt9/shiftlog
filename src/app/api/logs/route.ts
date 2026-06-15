@@ -5,7 +5,8 @@ import { checkTolerance } from '@/lib/validation';
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { machine_id, shift, log_date, period, operator_name, die_code, form_data } = body;
+    const { machine_id, shift, log_date, period, operator_name, form_data } = body;
+    const die_code = body.die_code || null;
 
     const isOutOfTolerance = checkTolerance(form_data);
 
