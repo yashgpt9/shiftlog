@@ -2,8 +2,9 @@ import { NextResponse } from 'next/server';
 import sql from '@/lib/db';
 import { checkTolerance } from '@/lib/validation';
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
+export async function PUT(req: Request, context: any) {
   try {
+    const params = await context.params;
     const id = params.id;
     const body = await req.json();
     const { form_data } = body;

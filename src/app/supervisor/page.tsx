@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 export const dynamic = 'force-dynamic';
 
 export default async function SupervisorDashboard() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   if (!cookieStore.has('supervisor')) {
     redirect('/supervisor/login');
   }

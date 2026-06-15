@@ -220,9 +220,9 @@ export default function ReportClient({ initialLogs, machineId, logDate, targetLo
       </div>
       
       <div className="max-w-[1000px] mx-auto p-5" style={{ fontFamily: 'Arial, sans-serif', fontSize: '10px' }}>
-        <ShiftTable shift="A" isFirst={true} />
+        <ShiftSection shift="A" isFirst={true} />
         <div style={{ height: '10px' }}></div>
-        <ShiftTable shift="B" />
+        <ShiftSection shift="B" />
         
         <div style={{ border: '1px solid #000', borderTop: 'none', padding: '4px', fontSize: '9px', fontWeight: 'bold', textAlign: 'left' }}>
           O=operator change ,C=Component Change,P=Cutting Parameter Change,T=Tool Change, D=Dim compensation,E=Fixture/Accesory Change,RT =Resetting tool,RF=Resetting Fix<br/>
@@ -230,7 +230,7 @@ export default function ReportClient({ initialLogs, machineId, logDate, targetLo
           Legends= &nbsp;&nbsp;&nbsp;&nbsp;<span style={{ color: 'red', fontSize: '16px', fontWeight: 'bold', verticalAlign: 'middle' }}>&#9671;</span> Critical Characteristics for Process
         </div>
         
-        <ShiftTable shift="C" />
+        <ShiftSection shift="C" />
         <div style={{ height: '10px' }}></div>
 
         {/* NC Detail Table */}

@@ -5,13 +5,14 @@ import ReportClient from './ReportClient';
 
 export const dynamic = 'force-dynamic';
 
-export default async function SupervisorLogReview({ params }: { params: { id: string } }) {
-  const cookieStore = cookies();
+export default async function SupervisorLogReview({ params }: { params: Promise<{ id: string }> }) {
+  const cookieStore = await cookies();
   if (!cookieStore.has('supervisor')) {
     redirect('/supervisor/login');
   }
 
-  const logId = params.id;
+  const { id } = await params;
+  const logId = id;
 
   const targetLogResult = await sql`SELECT machine_id, log_date FROM machine_logs WHERE id = ${logId}`;
   

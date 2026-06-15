@@ -1,13 +1,14 @@
 "use client";
 
 import { useState, useEffect, FormEvent } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { getCurrentShiftDetails } from '@/lib/utils';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
-export default function MachineLogPage({ params }: { params: { machineId: string } }) {
-  const machineId = params.machineId;
+export default function MachineLogPage() {
+  const params = useParams();
+  const machineId = params.machineId as string;
 
   const [shiftDetails, setShiftDetails] = useState({ shift: '', period: '', logDateStr: '' });
   const [operatorName, setOperatorName] = useState('');
